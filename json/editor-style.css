@@ -1,0 +1,10 @@
+/**
+ * @desc Include stylesheets from your site to style the WordPress Editor.
+ */
+
+@include( 'http://my-site/css/html.css' );
+
+body.mceContentBody.wp-editor {
+	width: 700px;
+	margin: 10px;
+}
