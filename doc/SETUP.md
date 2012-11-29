@@ -2,17 +2,26 @@ JSON WordPress Theme
 =========================
 Set Up The Theme In WordPress
 -----------------------------
-  
-  
-Assumptions
------------
-These examples assume you have two different domains/subdomains: one for JSON data, one for your website.  
+
+
+___
 
 
 Examples Keys
 -------------
 `{{YOUR_WP_JSON_INSTALL}}` -- This represents the file path where you installed WordPress on your server.  
 `http://your-wp-json` -- This represents the URL to your WordPress site with JSON Theme.  
+
+
+Requirements
+------------
+JSON Theme requires permalinks to be enabled. If your server doesn't support the .htaccess rewrites required for 
+permalinks, this theme won't work. To check if your server supports permalinks, enable them (see Installation/Configuration, step 4 below) and check a subpage 
+URL.  
+
+If it looks something like this: `http://my-wp-json/?p=123`, your server **does not** support permalinks, this theme won't work. :[  
+
+If it looks something like this: `http://my-wp-json/page-slug/`, success! :D  
 
 
 Installation/Configuration

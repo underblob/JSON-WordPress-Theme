@@ -2,25 +2,13 @@ JSON WordPress Theme
 ====================
 Request JSON Via AJAX Using jQuery
 ----------------------------------
-  
-  
-Assumptions
------------
-These examples assume you have two different domains/subdomains:  
-one for JSON data, one for your website.  
+
+___
 
 
-Examples Keys
--------------
-`{{YOUR_WP_JSON_INSTALL}}` -- This represents the file path where you installed WordPress on your server.  
-`http://your-wp-json` -- This represents the URL to your WordPress site with JSON Theme.  
-  
-`http://your-website` -- This represents the website where your HTML, Javascript, PHP, CSS, etc. reside.  
+In the example below, `http://your-wp-json` represents the URL to your WordPress site with JSON Theme.
 
-
-jQuery Example
----------------
-To retrieve a page/post/category, replace `post-page-or-category-slug` in the following example with the actual page slug, post slug, or category slug that you want to retrieve:
+To retrieve a page/post/category, replace `post-page-or-category-slug` in the following example with an actual page slug, post slug, or category slug from your WordPress site with JSON Theme that you want to retrieve:
 ```javascript
 var jsonUrl = 'http://your-wp-json/post-page-or-category-slug';
 $.ajax( {

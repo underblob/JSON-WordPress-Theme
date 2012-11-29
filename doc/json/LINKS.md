@@ -4,6 +4,9 @@ JSON WordPress Theme
 Links WP Object Structure
 -------------------------
 
+___
+
+
 Following is reference structure for the JSON object returned by a call to the `get-links` Template.
 
 ```javascript
