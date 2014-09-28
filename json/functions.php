@@ -5,6 +5,7 @@ class BBID_JSON {
 	private $_currentMenu;
 
 	public function __construct() {
+
 		$this->_currentMenu 	= array();
 	}
 
@@ -14,6 +15,7 @@ class BBID_JSON {
 	 * @return object
 	 */
 	public function filterMenuPost( $menu_post ) {
+
 		$menu_filtered 		= ( object ) array(
 			'ID' 				=> $menu_post->ID,
 			'nav_label' 		=> $menu_post->title,
@@ -245,11 +247,10 @@ class BBID_JSON {
 	 * @see http://codex.wordpress.org/Class_Reference/WP_Query#Parameters
 	 */
 	public function updateQueryPosts() {
+
 		if ( empty( $_GET ) ) 	return;
 
-		global $wp_query;
-		$args 	= array_merge( $wp_query->query, $_GET );
-		query_posts( $args );
+		query_posts( $_GET );
 	}
 
 }
