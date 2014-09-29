@@ -133,6 +133,7 @@ class BBID_JSON {
 				$sizes[] 			= 'full';
 				foreach ( $sizes as $size ) {
 					$img 			= wp_get_attachment_image_src( $attachment->ID, $size );
+					$media->images->{ $size } 			= new stdClass();
 					$media->images->{ $size }->url 		= $img[ 0 ];
 					$media->images->{ $size }->width 	= $img[ 1 ];
 					$media->images->{ $size }->height 	= $img[ 2 ];
