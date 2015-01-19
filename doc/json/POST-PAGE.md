@@ -39,6 +39,7 @@ Following is reference structure for the JSON object returned by a request for a
 				int
 			],
 			filter: 			string,
+			post_uri: 			string,
 			post_html: 			string,
 			custom_fields: {
 				"field_name": 	string "value"
