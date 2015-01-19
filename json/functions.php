@@ -201,6 +201,8 @@ class BBID_JSON {
 	 * @return object
 	 */
 	public function getPostExtras( $post ) {
+
+		$post->post_uri = '/' . get_page_uri( $post->ID );
 		$post 	= $this->getHtml( $post );
 		$post 	= $this->getCustomFields( $post );
 		$post 	= $this->getMediaAttachments( $post );
