@@ -35,6 +35,40 @@ class BBID_JSON {
 	}
 
 	/**
+	 * @desc Convert HTML from wp_get_archives into array of objects.
+	 * @return array
+	 */
+	public function getArchives() {
+
+		$args 		= $_GET;
+		$args[ 'echo' ] = false;
+
+		$html 		= wp_get_archives( $args );
+		$html 		= DOMDocument::loadHTML( $html );
+		$anchors 	= $html->getElementsByTagname( 'a' );
+
+		$blog_url 	= $this->getBlogInfo( 'url' );
+		$blog_url 	= $blog_url[ 'url' ];
+
+		$archives 	= array();
+
+		foreach ( $anchors as $anchor ) {
+
+			$href 	= $anchor->getAttribute( 'href' );
+
+			$props = array(
+				'clean_uri' 	=> str_replace( $blog_url, '', $href ),
+				'blog_url' 		=> $blog_url,
+				'text' 			=> $anchor->textContent
+			);
+
+			$archives[] = $props;
+		}
+
+		return $archives;
+	}
+
+	/**
 	 * @desc Returns blog info requested.
 	 * @param string $info_request - Semicolon delimited string of blog values.
 	 * @return array - Associative array.
@@ -265,6 +299,19 @@ class BBID_JSON {
 	    $text 	= preg_replace( '~[^-\w]+~', '', $text );
 
 		return ( empty( $text ) ) ? 'n-a' : $text;
+	}
+
+	/**
+	 * @desc Print out variable for debugging.
+	 * @param mixed $var - The variable to print.
+	 * @param bool $die - Whether to stop script execution.
+	 * @return null
+	 */
+	public function trace( $var, $die=true ) {
+
+		echo '<pre>' . print_r( $var, true ) . '</pre>';
+
+		if ( $die ) { die(); }
 	}
 
 	/**
