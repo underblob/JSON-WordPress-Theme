@@ -61,23 +61,13 @@ class BBID_JSON {
 	 */
 	public function getCategories( $post ) {
 
-		$cat_ids 	= wp_get_post_categories( $post->ID );
-		$cats 		= array();
+		$cat_ids = wp_get_post_categories( $post->ID );
+		$post->post_categories = array();
 
 		foreach ( $cat_ids as $id ) {
 
-			$cat 	= get_category( $id );
-			$cats[] = array(
-				'cat_ID' 		=> $cat->cat_ID,
-				'count' 		=> $cat->count,
-				'description' 	=> $cat->description,
-				'name' 			=> $cat->name,
-				'parent' 		=> $cat->parent,
-				'slug' 			=> $cat->slug
-			);
+			$post->post_categories[] = get_category( $id );
 		}
-
-		$post->post_categories 	= $cats;
 
 		return $post;
 	}

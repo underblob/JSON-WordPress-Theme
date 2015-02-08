@@ -50,12 +50,23 @@ Following is reference structure for the JSON object returned by a request for a
 			},
 			post_categories: [
 				{
-					cat_ID: 45,
-					count: 71,
-					description: "",
-					name: "General",
-					parent: 0,
-					slug: "general"
+					term_id: 			int,
+					name: 				string,
+					slug: 				string,
+					term_group: 		int,
+					term_taxonomy_id: 	int,
+					taxonomy: 			string,
+					description: 		string,
+					parent: 			int,
+					count: 				int,
+					object_id: 			int,
+					filter: 			string,
+					cat_ID: 			int,
+					category_count: 	int,
+					category_description: string,
+					cat_name: 			string,
+					category_nicename: 	string,
+					category_parent: 	int
 				}
 			],
 			post_html: 			string,
