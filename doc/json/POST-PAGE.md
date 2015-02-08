@@ -40,6 +40,24 @@ Following is reference structure for the JSON object returned by a request for a
 			],
 			filter: 			string,
 			post_uri: 			string,
+			comments_count: {
+				total_comments: 0,
+				moderated: 0,
+				approved: 0,
+				spam: 0,
+				trash: 0,
+				post-trashed: 0
+			},
+			post_categories: [
+				{
+					cat_ID: 45,
+					count: 71,
+					description: "",
+					name: "General",
+					parent: 0,
+					slug: "general"
+				}
+			],
 			post_html: 			string,
 			custom_fields: {
 				"field_name": 	string "value"
@@ -58,35 +76,6 @@ Following is reference structure for the JSON object returned by a request for a
 						}
 					}
 				}
-			],
-			categories: [
-				term_id: 				string "int",
-				name: 					string,
-				slug: 					string,
-				term_group: 			string "int",
-				term_taxonomy_id: 		string "int",
-				taxonomy: 				string,
-				description: 			string,
-				parent: 				string "int",
-				count: 					string "int",
-				object_id: 				string "int",
-				cat_ID: 				string "int",
-				category_count: 		string "int",
-				category_description: 	string,
-				cat_name: 				string,
-				category_nicename: 		string,
-				category_parent: 		string "int"
-			],
-			tags: [
-				term_id: 				string "int",
-				name: 					string,
-				slug: 					string,
-				term_group: 			string "int",
-				term_taxonomy_id: 		string "int",
-				taxonomy: 				string,
-				description: 			string,
-				parent: 				string "int",
-				count: 					string "int"
 			]
 		}
 	]
