@@ -54,6 +54,35 @@ class BBID_JSON {
 	}
 
 	/**
+	 * @desc Attach categories info to post object.
+	 * @param object $post - The post to attach the category info to.
+	 * @return object
+	 * @see http://codex.wordpress.org/Function_Reference/wp_count_comments
+	 */
+	public function getCategories( $post ) {
+
+		$cat_ids 	= wp_get_post_categories( $post->ID );
+		$cats 		= array();
+
+		foreach ( $cat_ids as $id ) {
+
+			$cat 	= get_category( $id );
+			$cats[] = array(
+				'cat_ID' 		=> $cat->cat_ID,
+				'count' 		=> $cat->count,
+				'description' 	=> $cat->description,
+				'name' 			=> $cat->name,
+				'parent' 		=> $cat->parent,
+				'slug' 			=> $cat->slug
+			);
+		}
+
+		$post->post_categories 	= $cats;
+
+		return $post;
+	}
+
+	/**
 	 * @desc Adds name/value pairs from the Post's Custom Fields.
 	 * @param object $post - The Post from the loop.
 	 * @return object
@@ -202,7 +231,10 @@ class BBID_JSON {
 	 */
 	public function getPostExtras( $post ) {
 
-		$post->post_uri = '/' . get_page_uri( $post->ID );
+		$post->post_uri 		= '/' . get_page_uri( $post->ID );
+		$post->comments_count 	= wp_count_comments( $post->ID );
+
+		$post 	= $this->getCategories( $post );
 		$post 	= $this->getHtml( $post );
 		$post 	= $this->getCustomFields( $post );
 		$post 	= $this->getMediaAttachments( $post );
