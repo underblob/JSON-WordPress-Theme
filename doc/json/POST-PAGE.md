@@ -67,6 +67,8 @@ Following is reference structure for the JSON object returned by a request for a
 					cat_name: 			string,
 					category_nicename: 	string,
 					category_parent: 	int
+					blog_url: 			string, 	// Category URL to BBID_JSON install.
+					clean_uri: 			string 		// Category page path with blog URL removed.
 				}
 			],
 			post_html: 			string,

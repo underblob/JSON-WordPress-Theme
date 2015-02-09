@@ -57,8 +57,8 @@ class BBID_JSON {
 			$href 	= $anchor->getAttribute( 'href' );
 
 			$props = array(
-				'clean_uri' 	=> str_replace( $blog_url, '', $href ),
-				'blog_url' 		=> $blog_url,
+				'blog_url' 		=> $href,
+				'clean_uri' 	=> '/' . str_replace( $blog_url, '', $href ),
 				'text' 			=> $anchor->textContent
 			);
 
@@ -100,7 +100,16 @@ class BBID_JSON {
 
 		foreach ( $cat_ids as $id ) {
 
-			$post->post_categories[] = get_category( $id );
+			$cat 		= get_category( $id );
+			$cat_url 	= get_category_link( $id );
+
+			$blog_url 	= $this->getBlogInfo( 'url' );
+			$blog_url 	= $blog_url[ 'url' ];
+
+			$cat->blog_url 		= $cat_url;
+			$cat->clean_uri 	= '/' . str_replace( $blog_url, '', $cat_url );
+
+			$post->post_categories[] = $cat;
 		}
 
 		return $post;
