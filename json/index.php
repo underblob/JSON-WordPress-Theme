@@ -5,10 +5,13 @@ $BBID_JSON->updateQueryPosts();
 
 $json 		= array();
 
-while ( have_posts() ) {
-	the_post();
-	$post 		= $BBID_JSON->getPostExtras( $post );
-	$json[] 	= $post;
+if (! is_404() ) {
+
+	while ( have_posts() ) {
+		the_post();
+		$post 		= $BBID_JSON->getPostExtras( $post );
+		$json[] 	= $post;
+	}
 }
 
 $etag 	= md5( serialize( $json ) );
