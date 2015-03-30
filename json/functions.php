@@ -331,6 +331,11 @@ class BBID_JSON {
 
 		if ( empty( $_GET ) ) 	return;
 
+		$_GET[ 'paged' ] = ( get_query_var( 'paged' ) )
+			? get_query_var( 'paged' )
+			: 1
+		;
+
 		query_posts( $_GET );
 	}
 
