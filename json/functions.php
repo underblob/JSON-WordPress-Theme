@@ -271,6 +271,39 @@ class BBID_JSON {
 		$post 	= $this->getHtml( $post );
 		$post 	= $this->getCustomFields( $post );
 		$post 	= $this->getMediaAttachments( $post );
+		$post 	= $this->getThumbnails( $post );
+
+		return $post;
+	}
+
+	/**
+	 * @desc Returns the featured images of a post, if set by user.
+	 * @param object $post - The Post from the loop.
+	 * @return object
+	 */
+	public function getThumbnails ( $post ) {
+
+		if ( function_exists( 'add_theme_support' ) ) {
+			add_theme_support( 'post-thumbnails' );
+		}
+
+		// Add all thumbnail sizes.
+		$thumbnails = (object) array(
+			"full" 			=> false,
+			"large" 		=> false,
+			"medium" 		=> false,
+			"thumbnail" 	=> false
+		);
+
+		foreach ($thumbnails as $size => $null) {
+			$thumbnails->{ $size } = wp_get_attachment_image_src(
+				get_post_thumbnail_id($post->ID),
+				$size
+			);
+		}
+
+		$post->post_thumbnails 	= new stdClass();
+		$post->post_thumbnails 	= $thumbnails;
 
 		return $post;
 	}
@@ -299,13 +332,13 @@ class BBID_JSON {
 	 * @return string
 	 */
 	public function slugify( $text ) {
-	    // replace non letter or digits by -
-	    $text 	= preg_replace( '~[^\\pL\d]+~u', '-', $text );
-	    $text 	= trim( $text, '-' );
-	    $text 	= strtolower( $text );
+		// replace non letter or digits by -
+		$text 	= preg_replace( '~[^\\pL\d]+~u', '-', $text );
+		$text 	= trim( $text, '-' );
+		$text 	= strtolower( $text );
 
-	    // remove unwanted characters
-	    $text 	= preg_replace( '~[^-\w]+~', '', $text );
+		// remove unwanted characters
+		$text 	= preg_replace( '~[^-\w]+~', '', $text );
 
 		return ( empty( $text ) ) ? 'n-a' : $text;
 	}
