@@ -89,7 +89,13 @@ Following is reference structure for the JSON object returned by a request for a
 						}
 					}
 				}
-			]
+			],
+			post_thumbnails: {
+				full: 		string|bool,
+				large: 		string|bool,
+				medium: 	string|bool,
+				thumbnail: 	string|bool
+			}
 		}
 	]
 ```

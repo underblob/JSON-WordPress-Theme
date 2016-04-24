@@ -19,9 +19,9 @@ JSON Theme requires permalinks to be enabled. If your server doesn't support the
 permalinks, this theme won't work. To check if your server supports permalinks, enable them (see Installation/Configuration, step 4 below) and check a subpage
 URL.
 
-If it looks something like this: `http://my-wp-json/?p=123`, your server **does not** support permalinks, this theme won't work. :[
+If it looks something like this: `http://your-wp-json/?p=123`, your server **does not** support permalinks, this theme won't work. :[
 
-If it looks something like this: `http://my-wp-json/page-slug/`, success! :D
+If it looks something like this: `http://your-wp-json/page-slug/`, success! :D
 
 
 Installation/Configuration
