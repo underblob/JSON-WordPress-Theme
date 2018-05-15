@@ -1,5 +1,14 @@
+Deprectation Notice
+===================
+
+Since the release of [4.7](https://wordpress.org/news/2016/12/vaughan/), Worpress core now includes a [JSON API](https://v2.wp-api.org/). With this new feature available, I would recommend using the built-in API in favor of this **JSON Wordpress Theme**.
+
+To start using posts JSON from the new API, send a `GET` request to `/wp-json/wp/v2/posts` on your Wordpress site's domain.
+
+For full documentation, see [https://v2.wp-api.org/](https://v2.wp-api.org/)
+
 JSON WordPress Theme
-=========================
+====================
 
 JSON Theme renders JSON for consumption by AJAX, cURL or other web apps.
 
