@@ -1,7 +1,7 @@
 Deprectation Notice
 ===================
 
-Since the release of [4.7](https://wordpress.org/news/2016/12/vaughan/), WordPress core now includes a [JSON API](https://developer.wordpress.org/rest-api/). With this new feature available, I would recommend using the built-in API in favor of this **JSON WordPress Theme**.
+Since the release of [4.7](https://wordpress.org/news/2016/12/vaughan/), WordPress core now includes a [JSON REST API](https://developer.wordpress.org/rest-api/). With this new feature available, I would recommend using the built-in API in favor of this **JSON WordPress Theme**.
 
 To start using posts JSON from the new API, send a `GET` request to `/wp-json/wp/v2/posts` on your WordPress site's domain.
 
